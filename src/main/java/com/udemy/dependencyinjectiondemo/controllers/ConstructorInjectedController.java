@@ -1,7 +1,9 @@
 package com.udemy.dependencyinjectiondemo.controllers;
 
 import com.udemy.dependencyinjectiondemo.services.GreetingService;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class ConstructorInjectedController {
 
     private GreetingService greetingService;
