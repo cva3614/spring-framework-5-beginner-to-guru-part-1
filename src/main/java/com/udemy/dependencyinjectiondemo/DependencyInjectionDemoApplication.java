@@ -17,8 +17,10 @@ public class DependencyInjectionDemoApplication {
 
         FakeDataSource fakeDataSource = context.getBean(FakeDataSource.class);
         System.out.println("fakeDataSource username: " + fakeDataSource.getUsername());
+        System.out.println("fakeDataSource password: " + fakeDataSource.getPassword());
 
         FakeJmsBroker fakeJmsBroker = context.getBean(FakeJmsBroker.class);
         System.out.println("fakeJmsBroker username: " + fakeJmsBroker.getUsername());
+        System.out.println("fakeJmsBroker password: " + fakeJmsBroker.getPassword());
     }
 }

@@ -2,3 +2,10 @@ jms:
   username: JMSusername
   password: JMSpassword
   url: JMSurl
+
+---
+spring:
+    profiles: lv
+jms:
+    username: LVJMSUsername
+    password: LVJMSpassword
