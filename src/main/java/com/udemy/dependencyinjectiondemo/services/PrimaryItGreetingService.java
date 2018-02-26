@@ -1,17 +1,12 @@
 package com.udemy.dependencyinjectiondemo.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+public class PrimaryItGreetingService implements GreetingService {
 
-@Service
-@Primary
-@Profile("it")
-public class PrimaryItGreetingService implements GreetingService{
-
-    @Autowired
     private GreetingRepository greetingRepository;
+
+    public PrimaryItGreetingService(GreetingRepository greetingRepository) {
+        this.greetingRepository = greetingRepository;
+    }
 
     @Override
     public String sayGreeting() {
