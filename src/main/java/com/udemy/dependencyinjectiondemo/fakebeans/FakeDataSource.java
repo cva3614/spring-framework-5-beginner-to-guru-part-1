@@ -4,7 +4,7 @@ public class FakeDataSource {
 
     private String username;
     private String password;
-    private String dbUrl;
+    private String url;
 
     public String getUsername() {
         return username;
@@ -22,11 +22,11 @@ public class FakeDataSource {
         this.password = password;
     }
 
-    public String getDbUrl() {
-        return dbUrl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setDbUrl(String dbUrl) {
-        this.dbUrl = dbUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -2,29 +2,21 @@ package com.udemy.dependencyinjectiondemo.config;
 
 import com.udemy.dependencyinjectiondemo.fakebeans.FakeDataSource;
 import com.udemy.dependencyinjectiondemo.fakebeans.FakeJmsBroker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
 
 @Configuration
-@PropertySources({@PropertySource("classpath:datasource.properties"), @PropertySource("classpath:jms.properties")})
 public class PropertyConfig {
 
-    @Autowired
-    Environment env;
+    @Value("${db.username}")
+    String dbUsername;
 
-    @Value("${username}")
-    String username;
+    @Value("${db.password}")
+    String dbPassword;
 
-    @Value("${password}")
-    String password;
-
-    @Value("${dburl}")
+    @Value("${db.url}")
     String dbUrl;
 
     @Value("${jms.username}")
@@ -39,9 +31,9 @@ public class PropertyConfig {
     @Bean
     public FakeDataSource fakeDataSource() {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(env.getProperty("USERNAME"));
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setDbUrl(dbUrl);
+        fakeDataSource.setUsername(dbUsername);
+        fakeDataSource.setPassword(dbPassword);
+        fakeDataSource.setUrl(dbUrl);
         return fakeDataSource;
     }
 
